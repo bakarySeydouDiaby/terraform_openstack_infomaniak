@@ -1,0 +1,31 @@
+repos:
+
+- repo: https://github.com/gruntwork-io/pre-commit
+  rev: <VERSION> # Get the latest from: https://github.com/gruntwork-io/pre-commit/releases
+  hooks:
+    - id: tflint
+      args:
+        - "--module"
+        - "--deep"
+        - "--config=.tflint.hcl"
+    - id: terraform-validate
+    - id: terraform-fmt
+
+- repo: git://github.com/antonbabenko/pre-commit-terraform
+  rev: <VERSION> # Get the latest from: https://github.com/antonbabenko/pre-commit-terraform/releases
+  hooks:
+    - id: terraform_tfsec
+    - id: terraform_docs
+    - id: checkov
+
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.0.1
+  hooks:
+    - id: trailing-whitespace
+
+hooks:
+      - id: script
+        name: script
+        entry: ../python_custom_hook.py
+        language: python
+        pass_filenames: false
