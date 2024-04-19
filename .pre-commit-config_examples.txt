@@ -63,3 +63,25 @@ repos:
             --var-file tests/terraform.tfvars
         stages: [commit]
 EOF
+
+
+
+==================================
+cat <<EOF > .pre-commit-config.yaml
+repos:
+- repo: https://github.com/antonbabenko/pre-commit-terraform
+  rev: v1.64.0 # Get the latest from: https://github.com/antonbabenko/pre-commit-terraform/releases
+  hooks:
+    - id: terraform_fmt
+      args:
+        - --args=-no-color
+        - --args=-diff
+        - --args=-write=false
+    - id: terraform_docs
+      args:
+        - --hook-config=--create-file-if-not-exist=true # you can pass args to hooks !
+    - id: checkov
+    - id: terrascan
+    - id: terraform_tfsec
+    # - To complete ! Use what you want / need !!!
+EOF
