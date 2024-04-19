@@ -42,3 +42,20 @@ No modules.
 No outputs.
 
 
+## deploy infrs with terraform
+
+```
+cd NETWORKS/
+terraform init
+terraform plan
+terraform apply
+terraform destroy
+```
+
+## gerer git avec ommision des hooks
+```
+git add .
+git commit -m "message" --no-verify
+git log
+git push
+```
