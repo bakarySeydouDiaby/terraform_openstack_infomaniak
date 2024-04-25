@@ -61,7 +61,7 @@ variable "instance_flavor" {
   default     = "a1-ram2-disk20-perf1"
 }
 
-variable "security_group_name" {
+variable "default_security_group_name" {
   description = "The name of the security group"
   type        = list(string)
   default     = ["my_security_group"]

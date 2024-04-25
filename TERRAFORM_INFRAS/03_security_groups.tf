@@ -38,6 +38,8 @@ resource "openstack_networking_secgroup_v2" "subnet_secgroup" {
   name        = "subnet_secgroup"
   description = "Security group for the subnet"
 }
+
+## règle ssh à travers le reseau pour notre cidr interne pour ansible
 resource "openstack_networking_secgroup_rule_v2" "ssh_subnet_rule" {
   direction         = "ingress"
   ethertype         = "IPv4"
@@ -72,7 +74,13 @@ resource "openstack_networking_secgroup_rule_v2" "all_ports_udp_rule" {
 }
 
 
-## autoriser les ports 80 et 443 en tcp nommé proxy
+## autoriser les ports 80 et 443 en tcp nommé proxy : pour la machine traefiik
+
+resource "openstack_networking_secgroup_v2" "proxy_secgroup" {
+  name        = "proxy_secgroup"
+  description = "Security group for http and https"
+}
+
 resource "openstack_networking_secgroup_rule_v2" "http_rule" {
   direction         = "ingress"
   ethertype         = "IPv4"
@@ -80,7 +88,7 @@ resource "openstack_networking_secgroup_rule_v2" "http_rule" {
   port_range_min    = 80
   port_range_max    = 80
   remote_ip_prefix  = var.cidr
-  security_group_id = openstack_networking_secgroup_v2.subnet_secgroup.id
+  security_group_id = openstack_networking_secgroup_v2.proxy_secgroup.id
 }
 
 resource "openstack_networking_secgroup_rule_v2" "https_rule" {
@@ -90,5 +98,5 @@ resource "openstack_networking_secgroup_rule_v2" "https_rule" {
   port_range_min    = 443
   port_range_max    = 443
   remote_ip_prefix  = var.cidr
-  security_group_id = openstack_networking_secgroup_v2.subnet_secgroup.id
+  security_group_id = openstack_networking_secgroup_v2.proxy_secgroup.id
 }
