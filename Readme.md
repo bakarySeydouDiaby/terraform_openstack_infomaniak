@@ -84,6 +84,7 @@ in group_vars :
     vpn_key_org: "Baki"
     vpn_key_email: "baki@moi.fr"
     vpn_key_ou: "bak"
+```
 
 
 ### openvpn-client:
@@ -92,6 +93,7 @@ in default folder :
     vpn_user_list:
      - bakary
     vpn_destination_key: "/tmp/"
+```
 
 ## Dependencies
   - openvpn : generate ta keys and start openvpn@server service
@@ -113,22 +115,25 @@ playbook for roles openvpn server and client
   roles:
     - {role: 'openvpn-server', tags: 'openvpn-server'}
     - {role: 'openvpn-client', tags: 'openvpn-client'}
+```
 
 Execute playbook by role name : example openvpn-client
 
 ```bash
 ansible-playbook -i environment/dev/ playbook.yml -l openvpn -u debian --tags "openvpn-client"
-
+```
 
 # Test VPN on my local ubuntu wsl 
 - fetch client ovpn file : /tmp/bakary.ovpn
 - add in this file for dns settings: 
 
-    ```bash
+```bash
         script-security 2
         up /etc/openvpn/update-resolv-conf
         down /etc/openvpn/update-resolv-conf
+```
 
 - launch vpn :
 ```bash
     sudo openvpn --config /tmp/bakary.ovpn &
+```
