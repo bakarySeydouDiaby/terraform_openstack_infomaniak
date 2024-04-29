@@ -75,6 +75,7 @@ List any requirements here.
 
 ### openvpn-server :
 in group_vars : 
+```bash
     vpn_server_name: "my_vpn_server"
     vpn_key_name: "serverVPN"
     vpn_key_country: "EU"
@@ -87,6 +88,7 @@ in group_vars :
 
 ### openvpn-client:
 in default folder : 
+```bash
     vpn_user_list:
      - bakary
     vpn_destination_key: "/tmp/"
