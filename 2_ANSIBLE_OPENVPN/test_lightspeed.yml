@@ -1,0 +1,16 @@
+- name: Ping server with debian user
+  hosts: all
+  become: true
+  become_user: debian
+
+  tasks:
+    - name: Ping the server
+      ansible.builtin.ping:
+      register: ping_result
+
+    - name: Print the result
+      ansible.builtin.debug:
+        var: ping_result
+
+    - name: show variables and facts
+      debug: var=hostvars
