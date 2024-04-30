@@ -81,5 +81,5 @@ variable "metadata" {
 variable "vpn_user_list" {
   description = "The client vpn user"
   type        = list(any)
-  default     = ["bakaryseydou", "bakaryseydoudiaby"]
+  default     = ["bakaryseydou"]
 }

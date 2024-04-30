@@ -108,9 +108,28 @@
   ansible.builtin.shell: >
     openvpn --genkey --secret ta.key;
   args:
-    chdir: "{{ ansible_env.HOME }}/openvpn-ca/pki/"
+    chdir: /home/debian/openvpn-ca/pki/
     executable: /bin/bash
   when: not ta_key_exists.stat.exists
+
+- name: Change ta.key permission to allow copy from below tasks
+  become: true
+  become_user: root
+  ansible.builtin.file:
+    path:  /home/debian/openvpn-ca/pki/ta.key
+    state: file
+    mode: '0644'
+    owner: debian
+
+# - name: "{{ item }} Change ta.key permission to allow copy from below tasks"
+#   become: true
+#   become_user: root
+#   ansible.builtin.file:
+#     path:  "{{ ansible_env.HOME }}/openvpn-ca/pki/ta.key"
+#     state: file
+#     owner: debian
+#     group: root
+#     mode: '0600'
 
 - name: Copy certificates to /etc/openvpn
   become: true

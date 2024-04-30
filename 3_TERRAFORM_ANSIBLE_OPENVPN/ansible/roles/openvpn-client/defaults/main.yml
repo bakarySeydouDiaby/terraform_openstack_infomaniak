@@ -1,8 +1,7 @@
 ---
 # defaults file for roles/openvpn-client
 vpn_user_list:
-  - bakary
-  - seydou
+  - bakaryseydou
 vpn_destination_key: "/tmp/"
 vpn_server_name: "infovpn"
 

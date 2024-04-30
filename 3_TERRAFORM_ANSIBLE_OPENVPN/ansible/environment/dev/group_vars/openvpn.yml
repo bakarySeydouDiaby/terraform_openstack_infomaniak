@@ -7,4 +7,9 @@ vpn_key_org: "Baki"
 vpn_key_email: "baki@moi.fr"
 vpn_key_ou: "bak"
 
+vpn_user_list:
+  - bakaryseydou
+destination_key: "/tmp/"
+
+
 
