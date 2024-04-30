@@ -1,0 +1,8 @@
+---
+# tasks file for roles/openvpn-client
+- name: "Create client - {{ item }}"
+  include_tasks: create_client.yml
+  loop: 
+  - "{{ vpn_user_list }}"
+  tags:
+  - fetch

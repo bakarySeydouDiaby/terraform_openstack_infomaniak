@@ -1,0 +1,8 @@
+- name: Install and configure OpenVPN server
+  hosts: openvpn
+  # become: yes
+  # become_user: root
+
+  roles:
+    - openvpn-client
+ 

@@ -1,0 +1,9 @@
+---
+# defaults file for roles/openvpn-client
+vpn_user_list:
+  - bakary
+  - seydou
+vpn_destination_key: "/tmp/"
+vpn_server_name: "infovpn"
+
+##==> verifier /tmp : bakary.ovpn et seydou.ovpn
