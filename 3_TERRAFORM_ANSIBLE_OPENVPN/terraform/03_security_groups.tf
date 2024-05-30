@@ -1,7 +1,7 @@
 ## autoriser ssh pour se connecter aux instances à partir de l'ip publique qui sera créé
 
 resource "openstack_networking_secgroup_v2" "ssh_secgroup" {
-  name        = "ssh_secgroup"
+  name        = "ssh_from_all"
   description = "Security group for SSH access"
 }
 

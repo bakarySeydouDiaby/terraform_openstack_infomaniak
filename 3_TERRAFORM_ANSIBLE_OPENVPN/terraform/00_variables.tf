@@ -64,7 +64,7 @@ variable "instance_flavor" {
 variable "default_security_group_name" {
   description = "The name of the security group"
   type        = list(string)
-  default     = ["my_security_group"]
+  default     = ["default"]
 }
 
 variable "metadata" {
