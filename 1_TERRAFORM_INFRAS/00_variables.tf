@@ -14,6 +14,12 @@ variable "public_key_path" {
 
 ## network variables
 
+variable "cidr" {
+  description = "my_subnet_cidr"
+  type        = string
+  default     = "10.0.1.0/24"
+}
+
 variable "network_name" {
   description = "my_network"
   type        = string
@@ -32,16 +38,10 @@ variable "router_name" {
   default     = "my_router"
 }
 
-variable "cidr" {
-  description = "my_subnet_cidr"
-  type        = string
-  default     = "10.0.1.0/24"
-}
-
 variable "external_network_id" {
   description = "The ID of the external network"
   type        = string
-  default     = "0f9c3806-bd21-490f-918d-4a6d1c648489"
+  default     = "0f9c3806-bd21-490f-918d-4a6d1c648489" ## ext-net1
 }
 
 variable "external_network_name" {
@@ -64,7 +64,7 @@ variable "instance_flavor" {
 variable "default_security_group_name" {
   description = "The name of the security group"
   type        = list(string)
-  default     = ["my_security_group"]
+  default     = ["default"]
 }
 
 variable "metadata" {

@@ -17,7 +17,7 @@ variable "public_key_path" {
 variable "network_name" {
   description = "my_network"
   type        = string
-  default     = "my_network"
+  default     = ""
 }
 
 variable "subnet_name" {
