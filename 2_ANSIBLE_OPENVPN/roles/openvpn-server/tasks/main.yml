@@ -46,7 +46,7 @@
   ansible.builtin.command: "make-cadir {{ ansible_env.HOME }}/openvpn-ca"
   when: not ca_dir_exists.stat.exists
 
-- name:  CA configuration for openvpn certificate signing request
+- name: CA configuration for openvpn certificate signing request
   become: true
   become_user: debian
   ansible.builtin.lineinfile:
@@ -63,6 +63,7 @@
     - { property: 'export KEY_OU', value: '{{ vpn_key_ou }}' }
     - { property: 'export KEY_CONFIG', value: '{{ ansible_env.HOME }}/openvpn-ca/openssl-1.1.1.cnf' }
     - { property: 'export KEY_DIR', value: '{{ ansible_env.HOME }}/openvpn-ca/keys' }
+
 # check if ca file
 - name: Check if ca file exists
   ansible.builtin.stat:
@@ -120,16 +121,6 @@
     state: file
     mode: '0644'
     owner: debian
-
-# - name: "{{ item }} Change ta.key permission to allow copy from below tasks"
-#   become: true
-#   become_user: root
-#   ansible.builtin.file:
-#     path:  "{{ ansible_env.HOME }}/openvpn-ca/pki/ta.key"
-#     state: file
-#     owner: debian
-#     group: root
-#     mode: '0600'
 
 - name: Copy certificates to /etc/openvpn
   become: true
