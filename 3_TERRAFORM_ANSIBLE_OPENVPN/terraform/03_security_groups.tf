@@ -5,6 +5,7 @@ resource "openstack_networking_secgroup_v2" "ssh_secgroup" {
   description = "Security group for SSH access"
 }
 
+## règles
 resource "openstack_networking_secgroup_rule_v2" "ssh_rule" {
   direction         = "ingress"
   ethertype         = "IPv4"
@@ -22,6 +23,7 @@ resource "openstack_networking_secgroup_v2" "openvpn_secgroup" {
   description = "Security group for OpenVPN access"
 }
 
+## règles
 resource "openstack_networking_secgroup_rule_v2" "openvpn_rule" {
   direction         = "ingress"
   ethertype         = "IPv4"
@@ -32,7 +34,7 @@ resource "openstack_networking_secgroup_rule_v2" "openvpn_rule" {
   security_group_id = openstack_networking_secgroup_v2.openvpn_secgroup.id
 }
 
-## autoriser tous les connexions ssh entre serveurs à l'interieur du réseau## se
+## autoriser tous les connexions ssh entre serveurs à l'interieur du réseau
 
 resource "openstack_networking_secgroup_v2" "subnet_secgroup" {
   name        = "subnet_secgroup"
@@ -63,6 +65,7 @@ resource "openstack_networking_secgroup_rule_v2" "all_ports_tcp_rule" {
   security_group_id = openstack_networking_secgroup_v2.subnet_secgroup.id
 }
 
+## règles
 resource "openstack_networking_secgroup_rule_v2" "all_ports_udp_rule" {
   direction         = "ingress"
   ethertype         = "IPv4"
@@ -81,6 +84,7 @@ resource "openstack_networking_secgroup_v2" "proxy_secgroup" {
   description = "Security group for http and https"
 }
 
+## règles
 resource "openstack_networking_secgroup_rule_v2" "http_rule" {
   direction         = "ingress"
   ethertype         = "IPv4"

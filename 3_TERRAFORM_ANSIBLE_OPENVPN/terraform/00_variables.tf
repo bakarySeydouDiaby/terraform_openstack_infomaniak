@@ -14,10 +14,16 @@ variable "public_key_path" {
 
 ## network variables
 
+variable "cidr" {
+  description = "my_subnet_cidr"
+  type        = string
+  default     = "10.0.1.0/24"
+}
+
 variable "network_name" {
   description = "my_network"
   type        = string
-  default     = ""
+  default     = "my_network"
 }
 
 variable "subnet_name" {
@@ -32,16 +38,10 @@ variable "router_name" {
   default     = "my_router"
 }
 
-variable "cidr" {
-  description = "my_subnet_cidr"
-  type        = string
-  default     = "10.0.1.0/24"
-}
-
 variable "external_network_id" {
   description = "The ID of the external network"
   type        = string
-  default     = "0f9c3806-bd21-490f-918d-4a6d1c648489"
+  default     = "0f9c3806-bd21-490f-918d-4a6d1c648489" ## ext-net1
 }
 
 variable "external_network_name" {
@@ -77,9 +77,7 @@ variable "metadata" {
   }
 }
 
-### VARIABLE POUR ANSIBLE : LISTE UTILISATEUR POUR LE CLIENT openvpn
-variable "vpn_user_list" {
-  description = "The client vpn user"
-  type        = list(any)
-  default     = ["bakaryseydou"]
+variable "vpn_user_list" {   
+  type = list(any)   
+  default = ["bakis"]
 }
