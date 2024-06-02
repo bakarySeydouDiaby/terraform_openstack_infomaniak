@@ -12,7 +12,8 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_openstack"></a> [openstack](#provider\_openstack) | ~> 1.52.1 |
+| <a name="provider_null"></a> [null](#provider\_null) | 3.2.2 |
+| <a name="provider_openstack"></a> [openstack](#provider\_openstack) | 1.52.1 |
 
 ## Modules
 
@@ -22,6 +23,8 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [null_resource.create_new_vpn_client](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
+| [null_resource.openvpn_server](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
 | [openstack_compute_floatingip_associate_v2.fip_assoc](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/compute_floatingip_associate_v2) | resource |
 | [openstack_compute_instance_v2.openvpn](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/compute_instance_v2) | resource |
 | [openstack_compute_keypair_v2.keypair](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/compute_keypair_v2) | resource |
@@ -48,7 +51,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_cidr"></a> [cidr](#input\_cidr) | my\_subnet\_cidr | `string` | `"10.0.1.0/24"` | no |
-| <a name="input_default_security_group_name"></a> [default\_security\_group\_name](#input\_default\_security\_group\_name) | The name of the security group | `list(string)` | <pre>[<br>  "my_security_group"<br>]</pre> | no |
+| <a name="input_default_security_group_name"></a> [default\_security\_group\_name](#input\_default\_security\_group\_name) | The name of the security group | `list(string)` | <pre>[<br>  "default"<br>]</pre> | no |
 | <a name="input_external_network_id"></a> [external\_network\_id](#input\_external\_network\_id) | The ID of the external network | `string` | `"0f9c3806-bd21-490f-918d-4a6d1c648489"` | no |
 | <a name="input_external_network_name"></a> [external\_network\_name](#input\_external\_network\_name) | n/a | `string` | `"ext-floating1"` | no |
 | <a name="input_instance_flavor"></a> [instance\_flavor](#input\_instance\_flavor) | n/a | `string` | `"a1-ram2-disk20-perf1"` | no |
@@ -59,7 +62,7 @@ No modules.
 | <a name="input_public_key_path"></a> [public\_key\_path](#input\_public\_key\_path) | The path to the public key file | `string` | `"~/.ssh/id_rsa.pub"` | no |
 | <a name="input_router_name"></a> [router\_name](#input\_router\_name) | my\_router | `string` | `"my_router"` | no |
 | <a name="input_subnet_name"></a> [subnet\_name](#input\_subnet\_name) | my\_subnet | `string` | `"my_subnet"` | no |
-| <a name="input_vpn_user_list"></a> [vpn\_user\_list](#input\_vpn\_user\_list) | The client vpn user | `list(any)` | <pre>[<br>  "bakaryseydou",<br>  "bakaryseydoudiaby"<br>]</pre> | no |
+| <a name="input_vpn_user_list"></a> [vpn\_user\_list](#input\_vpn\_user\_list) | n/a | `list(any)` | <pre>[<br>  "bakis"<br>]</pre> | no |
 
 ## Outputs
 
